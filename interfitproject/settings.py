@@ -8,13 +8,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
-secret_file = os.path.join(BASE_DIR, 'interfitproject/secrets.json') # secrets.json 파일 위치를 명시
+secret_file = os.path.join(BASE_DIR, 'interfitproject/secrets.json') # secrets.json 
 
 with open(secret_file) as f:
     secrets = json.loads(f.read())
 
 def get_secret(setting, secrets=secrets):
-    """비밀 변수를 가져오거나 명시적 예외를 반환한다."""
+    
     try:
         return secrets[setting]
     except KeyError:
@@ -74,13 +74,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'interfitproject.wsgi.application'
 
 
-secret_db_file = os.path.join(BASE_DIR, 'interfitproject/secrets_db.json') # secrets.json 파일 위치를 명시
+secret_db_file = os.path.join(BASE_DIR, 'interfitproject/secrets_db.json') # secrets.json 
 
 with open(secret_db_file) as f:
     secrets_db = json.loads(f.read())
 
 def get_secret_db(setting, secrets=secrets_db):
-    """비밀 변수를 가져오거나 명시적 예외를 반환한다."""
+    
     try:
         return secrets[setting]
     except KeyError:
