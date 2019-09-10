@@ -5,29 +5,13 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-
-
-
-secret_file = os.path.join(BASE_DIR, 'interfitproject/secrets.json') # secrets.json 
-
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
-
-def get_secret(setting, secrets=secrets):
-    
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['django-env.x2afusw42b.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1','django-env.x2afusw42b.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -74,27 +58,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'interfitproject.wsgi.application'
 
 
-secret_db_file = os.path.join(BASE_DIR, 'interfitproject/secrets_db.json') # secrets.json 
-
-with open(secret_db_file) as f:
-    secrets_db = json.loads(f.read())
-
-def get_secret_db(setting, secrets=secrets_db):
-    
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': get_secret_db("HOST"),
-        'PORT': get_secret_db("PORT"),
-        'NAME': get_secret_db("NAME"),
-        'USER': get_secret_db("USER"),
-        'PASSWORD': get_secret_db("PASSWORD"),
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
     }
 }
 
