@@ -12,6 +12,7 @@ class Resumelist(models.Model):
     born_year = models.CharField(max_length=100) 
     final_edu = models.CharField(max_length=100) 
     work_year = models.CharField(max_length=100)
+    salary = models.CharField(max_length=100, null=True)
     resume_detail = models.TextField()
     outcome = models.CharField(max_length=100)
     pub_date = models.DateTimeField('date published')

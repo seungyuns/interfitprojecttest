@@ -72,7 +72,7 @@
                         <option value="{{position_detail2}}" style="color: black">{{position_detail2}}</option>
                     {% endfor %}
                     </optgroup>
-                    <optgroup label="생산/제조/연구개발"">
+                    <optgroup label="생산/제조/연구개발">
                     {% for position_detail3 in position_detail3 %}
                         <option value="{{position_detail3}}" style="color: black">{{position_detail3}}</option>
                     {% endfor %}
@@ -99,11 +99,11 @@
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 
                     이름 :
-                    <input name="resume_name" size="10" type="text" style="margin-left: 50px; margin-top: 10px; " value="">
+                    <input name="resume_name" size="10" type="text" style="margin-left: 50px; margin-top: 10px; width:100px; " value="">
                     <br>
                     성별 :
-                    <select name="sex" class="booking_input booking_input_container" style="margin-left: 50px; margin-top: 10px" required="required">
-                        <option value="" selected disabled hidden>선택</option>
+                    <select name="sex" class="booking_input booking_input_container" style="margin-left: 50px; margin-top: 10px; width:100px;" required="required">
+                        <option value="null" selected disabled hidden>선택</option>
                         {% for sex in sex %}
                             <option value="{{sex}}" style="color: black">{{sex}}</option>
                         {% endfor %}
@@ -111,10 +111,10 @@
                     <br>
             
                     출생년도 :
-                    <input name="born_year" size="10" type="text" style="margin-left: 18px; margin-top: 10px" value="">
+                    <input name="born_year" size="10" type="text" style="margin-left: 18px; margin-top: 10px; width:100px;" value="">
                     <br>
                     학력사항 :
-                    <select name="final_edu" class="booking_input booking_input_container" style="margin-left: 18px; margin-top: 10px" required="required">
+                    <select name="final_edu" class="booking_input booking_input_container" style="margin-left: 18px; margin-top: 10px; width:100px;" required="required">
                         <option value="" selected disabled hidden>선택</option>
                         {% for edu in edu %}
                             <option value="{{edu}}" style="color: black">{{edu}}</option>
@@ -122,7 +122,10 @@
                     </select>
                     <br>
                     총 경력 :
-                    <input name="work_year" size="10" type="number" min='0' max='100' style="margin-left: 30px; margin-top: 10px; " value="">
+                    <input name="work_year" size="10" type="number" min='0' max='100' style="margin-left: 30px; margin-top: 10px; width:100px; " value="">
+                    <br>
+                    희망연봉 :
+                    <input name="salary" size="10" type="number" min='0' style="margin-left: 18px; margin-top: 10px; width:100px; " value="">(만원)
                     <br>
                     <br>
                     경력 상세 

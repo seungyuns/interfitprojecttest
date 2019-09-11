@@ -5,11 +5,13 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+
+SECRET_KEY ="u(=gf%t)yleg@y!m^s5%5sabx6p+*g@f_)h0zt+n^=v&1o9mdp"
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','django-env.x2afusw42b.us-west-2.elasticbeanstalk.com']
 
@@ -58,16 +60,28 @@ TEMPLATES = [
 WSGI_APPLICATION = 'interfitproject.wsgi.application'
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': os.environ['DB_HOST'],
+#         'PORT': os.environ['DB_PORT'],
+#         'NAME': os.environ['DB_NAME'],
+#         'USER': os.environ['DB_USER'],
+#         'PASSWORD': os.environ['DB_PASSWORD'],
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
+            "HOST": "interfitdbtest.cvkxhwqmhevj.us-east-2.rds.amazonaws.com" ,
+            "PORT": "3306",
+            "NAME": "interfitdbtest",
+            "USER": "seung",
+            "PASSWORD": "interfittest"  
     }
 }
+
 
 
 

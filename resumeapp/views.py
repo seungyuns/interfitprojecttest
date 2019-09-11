@@ -8,7 +8,7 @@ def resume_index(request):
 def resume_input(request):
 
     company_list = ['대기업', '중소기업', '스타트업', '공공/공기업', '해외근무', '외국계기업']
-    position = ['경영지원', 'IT개발',',연구개발(R&D)/생산/제조','영업/마케팅','전문직/특수직무']
+    position = ['경영지원', 'IT개발','연구개발(R&D)/생산/제조','영업/마케팅','전문직/특수직무']
     position2 = ['사원/주임', '대리', '과장', '차장', '부장', '임원']
     position_detail1 = ['기획/전략/경영관리', '총무/법무/사무관리', '언론홍보/PR','회계/재무/세무/IR','인사/교육/노무','경영지원/기타']
     position_detail2 = ['웹개발','게임개발','서버/네트워크/보안','웹기획/PM','모바일개발','ERP/시스템분석/시스템설계','웹디자인','퍼블리싱/UIUX개발','하드웨어개발', '동영상편집/쿠덱', '데이터베이스/DBA', '인공지능/AI/빅데이터']
@@ -35,6 +35,7 @@ def create(request): # 입력받은 내용 데이터베이스에 넣어주기
     resumelist.sex = request.POST['sex']
     resumelist.final_edu = request.POST['final_edu']
     resumelist.work_year = request.POST['work_year']
+    resumelist.salary = request.POST['salary']
     resumelist.resume_detail = request.POST['resume_detail']
     resumelist.outcome = request.POST['outcome']  #폼에 입력했던 name이 body 정보를 끌어온다.
     resumelist.pub_date = timezone.datetime.now() # 작성 시간 출력해주는 함수, 상단에 임포트 해와야 함.
